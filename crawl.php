@@ -7,9 +7,14 @@ use Alc\SitemapCrawler;
 
 $crawler = new SitemapCrawler();
 
-$data = $crawler->crawl($argv[1]);
+$sitemapUrls = $crawler->crawl($argv[1]);
 
-foreach($data as $row) {
+foreach($sitemapUrls as $url) {
 
-	echo $row, "\n";
+	echo $url, "\n";
+
+	foreach( $url->getAlternateLinks() as $alt ) {
+
+		echo $alt, "\n";
+	}
 }

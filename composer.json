@@ -3,7 +3,7 @@
     "description": "Crawl sitemap.xml recursively and return collected urls as array",
     "version": "1.0.0",
     "autoload": {
-        "psr-0": { "Alc\\SitemapCrawler": "src/" }
+        "psr-0": { "Alc\\": "src/" }
     },
     "require": {
         "alc/dom-parser-helper": "dev-master"

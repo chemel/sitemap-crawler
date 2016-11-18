@@ -30,7 +30,7 @@ class SitemapCrawler {
 	}
 
 	/**
-	 * url
+	 * parse
 	 *
 	 * @param string url
 	 */
@@ -49,14 +49,32 @@ class SitemapCrawler {
 			}
 		}
 
-		$nodes = $parser->find('url loc');
+		$nodes = $parser->find('url');
 
 		if( !empty($nodes) ) {
 
 			foreach( $nodes as $node ) {
 
-				if( !in_array($node->innertext, $this->urls) )
-					$this->urls[] = $node->innertext;
+				$loc = $node->find('loc', 0);
+
+				if( !isset($this->urls[$loc->innertext]) ) {
+
+					$url = new SitemapUrl();
+
+					// Set url
+					$url->setUrl($loc->innertext);
+
+					// Find alternate links
+					$alternateLinks = $node->find('xhtml:link[rel=alternate]');
+
+					foreach($alternateLinks as $alternateLink) {
+
+						$url->addAlternateLinks($alternateLink->getAttribute('hreflang'), $alternateLink->getAttribute('href'));
+					}
+
+					// Push in array
+					$this->urls[$url->getUrl()] = $url;
+				}
 			}
 		}
 
