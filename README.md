@@ -1,17 +1,15 @@
 # sitemap-crawler
 Crawl sitemap.xml recursively and return collected urls as array
 
-Install:
-======
+## Install
 
 ```bash
 
-composer require alc/sitemap-crawler:dev-master
+composer require alc/sitemap-crawler
 
 ```
 
-Usage:
-======
+## Usage
 
 ```php
 
@@ -27,8 +25,7 @@ print_r($data);
 
 ```
 
-Usage in a terminal:
-======
+## Usage in a terminal:
 
 ```bash
 
