@@ -17,12 +17,12 @@
         }
     },
     "require": {
-        "php": ">=5.3.0",
-        "alc/dom-parser-helper": "^1.0"
+        "php": "^7.2.5",
+        "alc/dom-parser-helper": "^3.0"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "2.0-dev"
         }
     }
 }
